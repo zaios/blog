@@ -1,2 +1,2 @@
 # blog
-Simple Django Project
+Simple Django Project - First Commit
