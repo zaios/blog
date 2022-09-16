@@ -24,5 +24,6 @@ urlpatterns = [
 	path('api-token-auth/', views.obtain_auth_token), 
     path('admin/', admin.site.urls),
     path('personal/', include('personal.urls', namespace='personal')),
+    path('api/', include('blog.router')),
 ]
 # https://blog.typeart.cc/django%E8%88%87django%20REST%20framework(DRF)%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98/
