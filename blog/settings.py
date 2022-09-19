@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*',]
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -71,8 +72,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'blog.wsgi.application'
-
+# WSGI_APPLICATION = 'blog.wsgi.application'
+ASGI_APPLICATION = 'blog.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -103,6 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
@@ -111,6 +113,16 @@ REST_FRAMEWORK = {
     ),
 }
 
+# Websocket by django
+# Refer site: https://channels.readthedocs.io/en/latest/introduction.html
+CHANNEL_LAYERS = {
+  'default': {
+      'BACKEND': 'channels_redis.core.RedisChannelLayer',
+      'CONFIG': {
+          'hosts': [ ('localhost', 6379) ],
+      },
+  },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
